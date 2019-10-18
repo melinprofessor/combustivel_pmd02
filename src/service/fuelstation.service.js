@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = "url_fack.com";
+const url = "https://combustivel-ricardo.herokuapp.com";
 
 export const regsiterFuelStation = async(entity) => {
     try {
