@@ -18,14 +18,15 @@ export function navigationOptions({navigation}) {
 
 const RegisterFuelStationScreen = (props) => {
     const {navigate} = props.navigation;
+    console.log(props.navigation)
     return (
         <View style={styles.container}>
             <View style={styles.containerHeader}>
                 <HeaderComponent {...props} title="Posto de Gasolina" icone="home"/>
                 <ScrollView>
                     <View style={styles.containerBody}>
-                        <ButtonAvatarComponent size="xlarge" iconColor='#2089dc' name="plus" subTitle='Adicionar' {...props} onPres={() => {navigate('Adicionar')}} />
-                        <ButtonAvatarComponent size="xlarge" iconColor='#2089dc' name="plus" subTitle='Adicionar' {...props} onPres={() => {navigate('Adicionar')}} />
+                        <ButtonAvatarComponent size="xlarge" iconColor='#2089dc' name="plus" subTitle='Adicionar' {...props} onPress={() => {navigate('Adicionar')}} />
+                        <ButtonAvatarComponent size="xlarge" iconColor='#2089dc' name="list" subTitle='Listar' {...props} onPress={() => {navigate('List')}} />
                     </View>
                 </ScrollView>
             </View>
@@ -33,9 +34,9 @@ const RegisterFuelStationScreen = (props) => {
     )
 }
 
-const Screen = {
+const Screen = props = {
     screen: RegisterFuelStationScreen,
-    navigationOptions,
+    navigationOptions: navigationOptions,
     params: {
         navigationType: 'drawer'
     }

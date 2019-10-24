@@ -9,7 +9,7 @@ import ButtonAvatarComponent from '../components/ButtonAvatarComponent';
 
 let navigate = null;
 
-export function navigationOptions({ navigate }) {
+export function navigationOptions({ navigation }) {
   return {
     title: 'Adicionar',
     header: null
@@ -94,7 +94,9 @@ const register = async fuelStationEntity => {
 };
 
 const CreateFuelStation = props => {
+  
   navigate = props.navigation.navigate;
+  console.log(props)
   const [name, setName] = useState('');
   const [address, setAdddres] = useState({});
   const [zipCode, setZipCode] = useState('');
@@ -133,6 +135,7 @@ const CreateFuelStation = props => {
               />
             }
             maxLength={8}
+            onChangeText={(text)=> setZipCode(text)}
           />
           <View style={estilo.cepBoxButton}>
             <Button
@@ -170,3 +173,55 @@ const CreateFuelStation = props => {
     </View>
   );
 };
+
+const estilo = StyleSheet.create({
+    form: {
+        margin: 20
+    },
+    container:{
+        flex: 1
+    },
+    cepBox: {
+        flexDirection: 'row',
+        marginTop: 20
+    },
+    cepBoxButton: {
+        marginTop: 25,
+    },
+    address: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20
+    },
+    cepInformation: {
+        width: '90%',
+        backgroundColor: 'rgba(12, 188, 223, 1)',
+        borderRadius: 5,
+        padding: 10
+    },
+    textCep: {
+        color: 'white',
+        fontSize: 20
+    },
+    buttonAction: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    active: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        marginTop: 15
+    }
+});
+
+const CreateFuelStationScreen = props = {
+    screen: CreateFuelStation,
+    navigationOptions,
+    params: {
+        navigationType: 'stack'
+    }
+}
+
+export default CreateFuelStationScreen;
